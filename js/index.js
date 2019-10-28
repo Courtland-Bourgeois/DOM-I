@@ -40,18 +40,38 @@ const siteContent = {
 
 
 
-// Updating the nav bar with the a tag descriptions //
-let navItems = document.getElementsByTagName('a');
-navItems[0].textContent = siteContent["nav"]["nav-item-1"];
-navItems[1].textContent = siteContent["nav"]["nav-item-2"];
-navItems[2].textContent = siteContent["nav"]["nav-item-3"];
-navItems[3].textContent = siteContent["nav"]["nav-item-4"];
-navItems[4].textContent = siteContent["nav"]["nav-item-5"];
-navItems[5].textContent = siteContent["nav"]["nav-item-6"];
+// Updating the nav bar with the anchor tag descriptions //
+let anchorItems = document.querySelectorAll('a');
+anchorItems[0].textContent = siteContent["nav"]["nav-item-1"];
+anchorItems[1].textContent = siteContent["nav"]["nav-item-2"];
+anchorItems[2].textContent = siteContent["nav"]["nav-item-3"];
+anchorItems[3].textContent = siteContent["nav"]["nav-item-4"];
+anchorItems[4].textContent = siteContent["nav"]["nav-item-5"];
+anchorItems[5].textContent = siteContent["nav"]["nav-item-6"];
+
+// Updating the nav system by adding two new items //
+const parentElement = document.querySelector('nav');
+
+const lastNewATag = document.createElement('a');
+lastNewATag.textContent = 'Search';
+lastNewATag.setAttribute('href', '#');
+lastNewATag.style.color = 'green';
+parentElement.appendChild(lastNewATag);
+
+const firstNewATag = document.createElement('a');
+firstNewATag.textContent = 'History';
+firstNewATag.setAttribute('href', '#');
+firstNewATag.style.color = 'green';
+parentElement.prepend(firstNewATag);
+
+// Updating the anchor tag text color //
+anchorItems.forEach(function(item) {
+  item.style.color = 'green';
+});
 
 
 
-// Example: Update the img src for the logo //
+// Updating the img src for the logo //
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
@@ -59,7 +79,8 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 // Updating the cta heading //
 let ctaHeading = document.querySelector('.cta-text h1');
-ctaHeading.textContent = siteContent.cta.h1;
+let myBR = document.createElement('BR');
+ctaHeading.textContent = siteContent["cta"]["h1"];
 
 
 
