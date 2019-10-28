@@ -77,10 +77,10 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 
 
-// Updating the cta heading //
-let ctaHeading = document.querySelector('.cta-text h1');
-let myBR = document.createElement('BR');
-ctaHeading.textContent = siteContent["cta"]["h1"];
+// Updating the cta heading // 
+document.querySelector('.cta-text h1').id = 'domHeading';
+document.getElementById('domHeading').innerHTML = 
+"DOM" + "<br>" + "Is" + "<br>" + "Awesome";
 
 
 
@@ -129,8 +129,11 @@ contactHeading.textContent = siteContent["contact"]["contact-h4"];
 
 
 // Updating the contact p tags //
+document.querySelector('.contact p').id = 'addressID';
+document.getElementById('addressID').innerHTML =
+"123 Way 456 Street" + "<br>" + "Somewhere, USA";
 let contactP = document.querySelectorAll('.contact p');
-contactP[0].textContent = siteContent.contact.address;
+// contactP[0].textContent = siteContent.contact.address;
 contactP[1].textContent = siteContent.contact.phone;
 contactP[2].textContent = siteContent.contact.email;
 
